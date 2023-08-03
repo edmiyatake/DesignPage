@@ -1,0 +1,228 @@
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    margin: 0 auto;
+    max-width: 90%;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 64px 0;
+}
+
+.navbar .left {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.navbar .right {
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .right a {
+    text-decoration: none;
+    color: black;
+}
+
+.navbar .right a:hover{
+    text-decoration: underline;
+    color: black;
+}
+
+.navbar .right img {
+    width: 24px;
+    height: 24px;
+}
+
+.navbar .hamburger {
+    height: 50px;
+    width: 50px;
+    display: none;
+}
+
+.navbar .bar {
+    background-color: black;
+    height: 4px;
+    width: 36px;
+    margin: 3px;
+    border-radius: 10px;
+}
+
+.project {
+    /* width: 300px; */
+    /* declares project as parent container */
+    position: relative;
+}
+
+.project img {
+    /* make sure image matches parent container */
+    width: 100%;
+    height: 100%;
+    /* object fit makes sure img is resized to parent containter 
+       cover means that aspect ratio is maintaed while filling 
+       the parent container*/
+    object-fit: cover;
+}
+
+.project .overlay {
+    margin: 0;
+    font-size: 36px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background-color: rgba(255,255,255,0.1);
+    /*  positions item to parent container*/
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* declare item as flex container */
+    display: flex;
+    /* justify centers main content */
+    justify-content: center;
+    /* align centes cross content */
+    align-items: center;
+    /* opacity: 0 allows hover animation to occur efficiently */
+    opacity: 0;
+    /* transition is shorthand for the entire function
+       transition: <property name> <duration> <type of ease function>*/
+    transition: all 0.2s ease;
+}
+
+.project .overlay:hover {
+    /* reveals hidden text */
+    opacity: 1;
+    cursor: pointer;
+}
+
+.project-grid {
+    /* declares as grid container */
+    display: grid;
+    grid-template-areas:
+    "eth eth alphabet "
+    "eth eth traveler"
+    "cube astro traveler "
+    "cup insta insta"
+    "cup insta insta"
+    "foam foam dimensional"
+    "foam foam dimensional";
+    grid-gap: 16px;
+    width: 100%;
+    /* max-width: 90%;
+    margin: 0 auto; */
+}
+
+#eth {
+    grid-area: eth;
+}
+
+#alphabet {
+    grid-area: alphabet;
+}
+
+#traveler {
+    grid-area: traveler;
+}
+
+#cube {
+    grid-area: cube;
+}
+
+#astro {
+    grid-area: astro;
+}
+
+#cup {
+    grid-area: cup;
+}
+
+#insta {
+    grid-area: insta;
+}
+
+#foam {
+    grid-area: foam;
+}
+
+#dimensional {
+    grid-area: dimensional;
+}
+
+.overlay.white {
+    color: white;
+}
+
+.footer {
+    text-align: center;
+    padding: 64px;
+}
+
+@media only screen and (max-width: 1100px) {
+    .container {
+        max-width: 100%;
+        padding: 16px;
+    }
+    .project-grid {
+        /* background-color: blue; */
+        grid-template-areas:
+            "eth eth"
+            "alphabet traveler "
+            "cube astro"
+            "insta insta"
+            "cup foam"
+            "dimensional dimensional";
+            max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .navbar {
+        background-color: white;
+        box-sizing: border-box;
+        width: 100%;
+        padding: 16px 24px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 3;
+    }
+
+    .navbar .right {
+        display: none;
+    }
+
+    .navbar .hamburger {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer {
+        font-size: 11px;
+    }
+
+    .project-grid {
+        /* background-color: blue; */
+        margin-top: 75px;
+        grid-template-areas:
+            "eth eth"
+            "alphabet alphabet"
+            "traveler traveler "
+            "cube astro"
+            "insta insta"
+            "cup cup"
+            "foam foam"
+            "dimensional dimensional";
+    }
+    .project .overlay {
+        font-size: 24px;
+    } 
+}
